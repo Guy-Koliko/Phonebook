@@ -1,6 +1,8 @@
+import check
 class Contact:
     total_address = 0
     address_db = {}
+    new_contact = []
     def __init__(self,firstname='',lastname='',email='',phonenumber=''):
         self.firstname=firstname
         self.lastname=lastname
@@ -10,19 +12,21 @@ class Contact:
     #Add a new contact to the book
     def add_new_contact(self):
 
-        firstname = input("Enter Firstname : ")
-        lastname = input("Enter Lastname : ")
-        email = input("Enter email address : ")
-        phonenumber = input("Enter Phone number : ")
+        new_contact = []
 
+        check.check_input("firstname","Firstname",new_contact)
+        check.check_input("lastname","Lastname",new_contact)
+        check.check_input("email","Email",new_contact)
+        check.check_input("phonenumber","Phonenumber",new_contact)
 
-        # self.firstname,self.lastname,self.email,self.phonenumber=firstname,lastname,email,phonenumber
-
-        #puting this items into a list
-        new_contact = [firstname,lastname,email,phonenumber]
+        try:
+            if self.address_db is not {}:
+                if self.address_db[new_contact[0]+new_contact[1]] ==self.address_db.keys():
+                    print("Address already exist ")
         #putting the list into a dictonary
-        self.address_db[firstname+lastname] = new_contact
-        print("A new contact has being added")
+        except KeyError:
+            self.address_db[new_contact[0]+new_contact[1]] = new_contact
+            print("A new contact has being added")
 
     #this shows contact in db
     def show_all_contact(self):

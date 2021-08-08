@@ -32,6 +32,8 @@ def menu():
             editcontact()
         elif sh =="C".lower():
             searchcontact()
+        elif sh =="X".lower():
+            exit()
 
         else:
             print("You have make a wrong choice,  [(Add) OR (Show) contact].")
@@ -54,6 +56,7 @@ def bannermotd():
                     DELETE A CONTACT [D]
                     SEARCH FOR A CONTACT [C]
                     EDIT CONTACT [E]
+                    EXIT [X]
                 {star}
 
 
