@@ -1,8 +1,9 @@
 import check
+import card
 class Contact:
     total_address = 0
     address_db = {}
-    new_contact = []
+
     def __init__(self,firstname='',lastname='',email='',phonenumber=''):
         self.firstname=firstname
         self.lastname=lastname
@@ -14,10 +15,13 @@ class Contact:
 
         new_contact = []
 
+
         check.check_input("firstname","Firstname",new_contact)
         check.check_input("lastname","Lastname",new_contact)
-        check.check_input("email","Email",new_contact)
-        check.check_input("phonenumber","Phonenumber",new_contact)
+        email = input("Enter email : ")
+        check.check_email(email,new_contact)
+        phonenumber = input(f"Enter  phonenumber (0000000000) :")
+        check.check_phone_number(phonenumber,new_contact)
 
         try:
             if self.address_db is not {}:
@@ -31,8 +35,11 @@ class Contact:
     #this shows contact in db
     def show_all_contact(self):
         for v in self.address_db.items():
-            for i in v:
-                print(i)
+            new_list = []
+            new_list.append(v[1])
+            for i in new_list:
+                card.console_card_printer(i[0],i[1],i[2],i[3])
+
 
     def delete_contact(self):
         contacts = input("Enter Contact to Delete : ")
