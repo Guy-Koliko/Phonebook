@@ -14,3 +14,6 @@ The records are stored in a pickle file and will be updated to a sqlit db.<br>
 This is just a simple project to show how to validate user input, search through<br>a dictonary with a binary search, edit and update an exiting ditonary.
 
 Feel free to fork and make changes to this project.
+
+## PROJECT SCREENSHOT
+![phonebook](image1.png)
